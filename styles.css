@@ -1,0 +1,255 @@
+body {
+    background-color: #f5f5f2; /* Eggshell white */
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.delete-zone {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Grid layout */
+.asset-container.grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-auto-rows: 200px;
+  grid-gap: 1rem;
+  padding: 1rem;
+  justify-items: center;
+}
+
+.asset.grid {
+  position: relative;
+  width: 200px;
+  border: 2px solid #CED4DA; /* Increase the border width as needed */
+  border-radius: .25rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  transition: transform 0.8s;
+  text-align: center;
+}
+
+/* List layout */
+.asset-container.list {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  align-items: center;
+}
+
+.asset.list {
+  position: relative;
+  width: 100%;
+  align-items:center;
+}
+
+.asset.list .asset-image {
+  width: 100%; /* Adjust the size as needed */
+}
+
+/* Common styles for asset elements */
+.asset {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #CED4DA;
+  padding: 1rem;
+  border-radius: .25rem;
+  transition: transform 0.8s;
+  text-align: center;
+}
+
+
+
+
+.asset.dragging {
+  opacity: 0.5;
+  transform: scale(2.05);
+}
+
+.asset.pinned {
+  border-color: rgb(0, 255, 179);
+  border-width: 10px;
+}
+
+.asset-image {
+  width: 100%;
+  justify-content: center; /* Horizontally center */
+  align-items: center; /* Vertically center */
+}
+
+.delete {
+  font-size: 20px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.pin {
+  display: inline-block;
+  cursor: grab;
+  margin: 1rem;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.asset .name {
+  font-weight: bold;
+  margin: 10px 0;
+}
+.asset .livestart-date {
+  font-size: 0.8em;
+  color: #888;
+}
+.asset .priority {
+  margin-top: 10px;
+}
+.asset .priority input {
+  width: 30px;
+}
+
+#name {
+  font-size: 7px; /* Change the font size to your desired value */
+}
+
+#sort-by-date {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  padding: 10px 24px;
+  border-radius: 8px;
+}
+
+#toggle-layout:hover {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #4CAF50;
+}
+
+#toggle-layout {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  padding: 10px 24px;
+  border-radius: 8px;
+}
+
+#sort-by-date:hover {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #4CAF50;
+}
+
+#toggle-images {
+  display: inline-block;
+  padding: 10px 24px;
+  margin: 4px 2px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition-duration: 0.4s;
+  outline: none;
+  color: #fff;
+  background-color: #ff5555;
+  border: none;
+  border-radius: 8px;
+}
+
+#toggle-images:hover {
+  background-color: #ee0000;
+}
+
+#toggle-images:active {
+  background-color: #ff0000;
+  box-shadow: 0 5px #650000;
+  transform: translateY(4px);
+}
+
+
+/* Header styles */
+header {
+  background-color: #ffffff; /* White */
+  padding: 5px;
+  text-align: center;
+}
+  
+header h1 {
+  color: #333333; /* Dark gray */
+}
+  
+  /* Main section styles */
+main {
+   max-width: 800px;
+   margin: 0 auto;
+   padding: 10px;
+}
+  
+section {
+   margin-bottom: 30px;
+}
+  
+h2 {
+   color: #333333; /* Dark gray */
+   font-size:20px;
+   text-align: center;
+}
+  
+p {
+  line-height: 1.5;
+  font-size:10px;
+  text-align: center;
+}
+  
+ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+  
+  /* Footer styles */
+footer {
+   background-color: #ffffff; /* White */
+   padding: 10px;
+   text-align: center;
+   color: #888888; /* Light gray */}
+
+
+  
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#more-button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  padding: 10px 24px;
+  border-radius: 8px;
+}
