@@ -10,7 +10,7 @@ options = Options()
 options.add_argument("--headless")  # Run the browser in headless mode, without opening a window
 
 # Set up the WebDriver
-driver = webdriver.Chrome(service=Service("path/to/chromedriver"), options=options)
+driver = webdriver.Chrome(service=Service("/opt/homebrew/bin/chromedriver"), options=options)
 
 driver.get("https://play.stan.com.au/sport/tennis")
 
@@ -68,7 +68,7 @@ for i, asset_html in enumerate(asset_matches, start=1):
         live_end_date = "N/A"
 
     # Skip the asset with the name 'Wimbledon' or live start date more than 24 hours in the future
-    if asset_name == "Wimbledon":
+    if asset_name == "US Open":
         continue
 
     current_timestamp = int(time.time() * 1000)  # Current timestamp in milliseconds
@@ -105,7 +105,6 @@ for asset_data in asset_list:
     asset_name = asset_data["Asset Name"]
     asset_image = asset_data["Asset Image"]
     live_start_date = asset_data["Live Start Date"]
-    live_end_date = asset_data["Live End Date"]
 
     # Skip the asset if the live end date is not "0"
     if live_end_date != "0":
@@ -116,18 +115,21 @@ for asset_data in asset_list:
         <img class="asset-image" src="{asset_image}" alt="Asset Image">
         <div class="name">{asset_name}</div>
         <div class="livestart-date">{live_start_date}</div>
-        <div class="liveend-date">{live_end_date}</div>
       </div>
     '''
 
     asset_elements += asset_element
 
 # Read the HTML file
-with open('index.html', 'r') as file:
+with open('public/index.html', 'r') as file:
     html_content = file.read()
 
 # Delete existing asset elements in the HTML
-html_content = re.sub(r'<div class="asset".*?</div>', '', html_content, flags=re.DOTALL)
+html_content = re.sub(r'<div class="asset" id="asset-\d+" draggable="true">.*?</div>\s*</div>', '', html_content, flags=re.DOTALL)
+
+
+# # Delete existing asset elements in the HTML
+# html_content = re.sub(r'<div class="asset".*?</div>', '', html_content, flags=re.DOTALL)
 
 # Find the position to insert the asset elements
 insert_position = html_content.find('<script')
